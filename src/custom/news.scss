@@ -1,0 +1,33 @@
+.news {
+
+}
+
+//News item
+.news-item {
+  padding: 10px;
+  margin-bottom: 60px;
+  &-content {
+    padding: 0 20px;
+    color: #fff;
+    p {
+      color: #fff;
+    }
+  }
+  &-image {
+    display: block;
+    margin-bottom: 20px;
+  }
+  &-date {
+    opacity: .5;
+    font-size: 14px;
+  }
+  &-title {
+    font-family: $title-font;
+    color: #fff;
+    //text-transform: uppercase;
+    font-size: 30px;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

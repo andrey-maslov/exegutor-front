@@ -1,0 +1,56 @@
+.hero {
+  &-wrapper {
+    img {
+      margin: 0 auto;
+      padding: 100px 0;
+      max-width: 400px;
+    }
+  }
+}
+.slick {
+  &-track {
+      height: 600px;
+  }
+
+  &-slide {
+    img {
+      width: 100%;
+    }
+  }
+
+  &-prev {
+    left: 10px;
+    z-index: 9;
+  }
+  &-next {
+    right: 10px;
+  }
+
+  &-dots {
+    bottom: 10px;
+
+    li {
+
+      button {
+        &:before {
+          color: #fff;
+          font-size: 13px;
+          opacity: .7;
+        }
+      }
+    }
+
+
+    li.slick-active {
+
+      button {
+        &:before {
+          color: #fff;
+          font-size: 18px;
+          opacity: 1;
+        }
+      }
+    }
+
+  }
+}

@@ -1,0 +1,45 @@
+.content {
+  background-color: $bg-dark;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1740px;
+}
+
+.dark-bg {
+  background: $bg-dark;
+}
+
+a {
+  transition: .2s;
+  &:hover {
+    color: $accent;
+  }
+}
+
+.section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  &-dark {
+    color: #fff;
+    background-color: $bg-dark;
+  }
+}
+
+.section-header {
+  h2 {
+    font-family: $title-font;
+    color: inherit;
+  }
+  p {
+    color: inherit;
+  }
+}
+
+
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

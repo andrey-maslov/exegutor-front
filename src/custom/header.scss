@@ -1,0 +1,108 @@
+.main-header {
+
+  &-bar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $bg-dark;
+    box-shadow: 1px 3px 7px rgba(#000, .3);
+    padding: 10px 20px;
+  }
+}
+
+.site {
+  &-branding {
+    display: flex;
+    align-items: center;
+  }
+
+  &-logo {
+    display: block;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    width: 50px;
+    height: auto;
+
+  }
+
+  &-name {
+    color: #fff;
+    font-family: $title-font;
+    margin-bottom: 0;
+  }
+}
+
+//Navigatin
+
+.nav {
+  &-list {
+    margin-bottom: 0;
+    padding-left: 0;
+
+    .nav-item {
+      display: inline-block;
+      padding: 5px 10px;
+      margin-right: 20px;
+
+      a {
+        color: #fff;
+        font-family: $title-font;
+
+        &:hover {
+          text-decoration: none;
+          color: $accent;
+        }
+
+        &.current-menu-item {
+          color: $accent;
+        }
+      }
+
+
+    }
+  }
+
+  &-toggle {
+    &-btn {
+      position: absolute;
+      display: none;
+      right: 15px;
+      top: 15px;
+      background-color: transparent;
+      border: 0;
+
+    }
+
+    &-icon {
+      color: #fff;
+      font-size: 24px;
+    }
+  }
+
+}
+
+//Social menu
+.social-menu {
+  &-list {
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+
+  &-item {
+    display: inline-block;
+
+    a {
+      margin-right: 30px;
+      font-size: 20px;
+      color: #fff;
+    }
+  }
+}
+
+
+.counter {
+  strong {
+    color: #fff;
+  }
+}

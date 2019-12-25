@@ -1,0 +1,15 @@
+// Libraries
+@import '~bootstrap/scss/bootstrap.scss';
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+//Modules
+@import 'custom/vars';
+@import 'custom/common';
+@import 'custom/news';
+@import 'custom/header';
+@import 'custom/front-page';
+@import 'custom/buttons';
+
+//Media
+@import 'custom/media';
