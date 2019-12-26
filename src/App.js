@@ -68,8 +68,6 @@ export default function App() {
     //Total pages
     const [totalPages, setTotalPages] = useState(0);
 
-    //REST Url
-    const url = admHost;
 
     useEffect(() => {
 
@@ -84,7 +82,7 @@ export default function App() {
             return;
         }
 
-        const _url = url + '/exegutor/v1/posts?page=' + page;
+        const _url = admHost + '/exegutor/v1/posts?page=' + page;
 
         axios({
             method: 'GET',
@@ -126,29 +124,23 @@ export default function App() {
 
     }, [ currentPage, loading, articlesPages, articles, totalPages ]);
 
+    let articlesData = {
+        getArticlesForPage: getArticlesForPage,
+        currentPage: currentPage,
+        setCurrentPage: setCurrentPage,
+        articles: articles,
+        articlesPages: articlesPages,
+        totalPages: totalPages,
+        loading: loading,
+    }
+
 
     return (
         <div className="app-wrapper">
             <Header/>
             <div className="content">
-                <Route exact path="/" render={() => <Home
-                    getArticlesForPage={getArticlesForPage}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                    articles={articles}
-                    articlesPages={articlesPages}
-                    totalPages={totalPages}
-                    loading={loading}
-                />}/>
-                <Route path="/news" render={() => <News
-                    getArticlesForPage={getArticlesForPage}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                    articles={articles}
-                    articlesPages={articlesPages}
-                    totalPages={totalPages}
-                    loading={loading}
-                />}/>
+                <Route exact path="/" render={() => <Home articlesData={articlesData} />}/>
+                <Route path="/news" render={() => <News articlesData={articlesData} />}/>
                 <Route path="/shows" render={() => <Shows/>}/>
                 <Route path="/about" render={() => <About/>}/>
                 <Route path="/music" render={() => <Music/>}/>

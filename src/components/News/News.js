@@ -6,12 +6,12 @@ export default function News(props) {
         <div className="news-wrapper">
             <h3>News</h3>
             <ArticlesList
-                currentPage={props.currentPage}
-                setCurrentPage={props.setCurrentPage}
-                articles={props.getArticlesForPage(props.currentPage, props.articles, props.articlesPages)}
-                totalPages={props.totalPages}
+                currentPage={props.articlesData.currentPage}
+                setCurrentPage={props.articlesData.setCurrentPage}
+                articles={props.articlesData.getArticlesForPage(props.articlesData.currentPage, props.articlesData.articles, props.articlesData.articlesPages)}
+                totalPages={props.articlesData.totalPages}
             />
-            {props.loading && <p>Loading</p>}
+            {props.articlesData.loading && <p>Loading</p>}
         </div>
     )
 }
