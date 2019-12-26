@@ -1,17 +1,15 @@
 import React from 'react'
-
-import image1 from './../../img/slider-2.jpg';
 import {NavLink} from "react-router-dom";
 
+//images
+import defaultThmb from './../../img/hero.jpg'
+
 export default (props) => {
-
-    console.log(props);
-
     return (
         <div className="news-item">
             <div className="news-item-inner">
                 <NavLink className="news-item-image" to="">
-                    <img src={props.data.thumb} alt="" className="img-responsive"/>
+                    <img src={props.data.thumb || defaultThmb} alt="" className="img-responsive"/>
                 </NavLink>
                 <div className="news-item-content">
                     <div className="news-item-date">{props.data.date}</div>

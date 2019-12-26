@@ -2,10 +2,8 @@ import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faVk as vkontakte, faFacebook as facebook, faInstagram as instagram, faBandcamp as bandcamp} from '@fortawesome/free-brands-svg-icons';
 
-
 import './Header.scss';
 import axios from "axios";
-import {NavLink} from "react-router-dom";
 
 let admHost = process.env.REACT_APP_ADMIN_HOST;
 

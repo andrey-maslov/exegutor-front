@@ -4,6 +4,7 @@ import axios from 'axios';
 import {NavLink} from "react-router-dom";
 
 let admHost = process.env.REACT_APP_ADMIN_HOST;
+let test = 'http://exegutor.maslov.work/';
 
 
 class Nav extends React.Component {
@@ -17,11 +18,11 @@ class Nav extends React.Component {
 
     static modifyUrl(str) {
 
-        let pattern = new RegExp(/(http:\/\/admin.exegutor.loc\/)(.+)(\/)/);
+        let pattern = new RegExp(/(http:\/\/exegutor.maslov.work\/)(.+)(\/)/);
 
         let newStr = str.replace(pattern, '$2');
 
-        if (newStr !== 'http://admin.exegutor.loc/') {
+        if (newStr !== 'http://exegutor.maslov.work/') {
             return newStr;
         } else {
             return '';
