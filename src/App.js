@@ -97,8 +97,6 @@ export default function App() {
 
                     const data = response.data;
 
-
-
                     let _articles = [...articles, ...data];
 
                     let _articlesPages = [];
@@ -125,13 +123,13 @@ export default function App() {
     }, [ currentPage, loading, articlesPages, articles, totalPages ]);
 
     let articlesData = {
-        getArticlesForPage: getArticlesForPage,
-        currentPage: currentPage,
-        setCurrentPage: setCurrentPage,
-        articles: articles,
-        articlesPages: articlesPages,
-        totalPages: totalPages,
-        loading: loading,
+        getArticlesForPage,
+        currentPage,
+        setCurrentPage,
+        articles,
+        articlesPages,
+        totalPages,
+        loading
     }
 
 
