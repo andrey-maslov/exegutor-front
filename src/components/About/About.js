@@ -3,36 +3,40 @@ import React, {useState, useEffect} from 'react';
 import './About.scss';
 
 const axios = require('axios');
+const url = process.env.REACT_APP_ADMIN_HOST + '/wp/v2/pages/11';
 
-let admHost = process.env.REACT_APP_ADMIN_HOST;
+export default () => {
 
-function About() {
+    const [pageData, setPageData] = useState({
+        pageTitle: '',
+        pageContent: ''
+    });
 
-    const [data, setData] = useState({ page: [] });
+    useEffect(() => {
 
-    useEffect(()=>{
-        const url = admHost + '/wp/v2/pages/11';
+        axios({
+            method: 'GET',
+            url: url
+        })
+            .then((response) => {
+                if (response.status === 200 && response.data) {
+                    const _pageData = response.data;
+                    setPageData({
+                        pageTitle: _pageData.title.rendered,
+                        pageContent: _pageData.content.rendered
+                    });
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            })
 
-        async function fetchData() {
-            const result = await axios(url);
-       
-            setData(result.data)
-        }
-
-        fetchData();
-       
-    },[]);
-
-    console.log(data.content);
-    let content = data.content;
+    }, []);
 
     return (
         <div className="about-wrapper">
-<h3>{content.protected}</h3>
-    <div></div>
-            <button>increment</button>
+            <h3 dangerouslySetInnerHTML={{__html: pageData.pageTitle}}/>
+            <div dangerouslySetInnerHTML={{__html: pageData.pageContent}}/>
         </div>
     )
 }
-
-export default About;
