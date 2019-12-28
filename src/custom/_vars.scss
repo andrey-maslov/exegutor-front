@@ -1,0 +1,49 @@
+//$default-font: "Titillium Web", sans-serif;
+$title-font: 'KB Band';
+
+
+
+
+///Colors
+$accent: #B52532;
+$text: #111;
+$accent-hover: #E86C49;
+
+$secondary-color:  #222;
+
+$bg-dark: #000;
+
+$grey: #C1C1C1;
+$grey-bg: #F0F1F2;
+$light-grey: #F4F6F7;
+
+$link: $accent;
+$link-hover:  $accent-hover;
+
+/// OK/NO colors
+$red: #E15F5F;
+$green: #26AF7E;
+
+
+//Decoration
+$border-radius-sm: 3px;
+$border-radius-lg: 6px;
+$box-shadow-sm: 0px 1px 8px rgba(0, 0, 0, 0.2);
+$box-shadow-md:  0px 2px 12px rgba(0, 0, 0, 0.14);
+$box-shadow-lg: 0px 40px 42px rgba(0, 0, 0, 0.12); /// ?
+
+///Typography
+$h1-fontsize: 36px;
+$h2-fontsize: 32px;
+$h3-fontsize: 22px;
+$h4-fontsize: 20px;
+$h5-fontsize: 18px;
+$h6-fontsize: 15px;
+
+/// Customization Bootstrap vars from "app/libs/bootstrap/scss/_variables.scss"
+$grid-gutter-width: 20px;
+$grid-columns: 12;
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1360px);
+$container-max-widths: (sm: 540px, md: 720px, lg: 980px, xl: 1240px);
+
+$gutter: $grid-gutter-width;

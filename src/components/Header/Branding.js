@@ -11,9 +11,9 @@ export default function() {
             <NavLink to="/">
                 <img src={logo} className="site-logo" alt="logo"/>
             </NavLink>
-            <h2 className="site-name">
+            <div className="site-name">
                 Exegutor
-            </h2>
+            </div>
         </div>
     )
 }

@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react';
 
-import './About.scss';
-
 const axios = require('axios');
 const url = process.env.REACT_APP_ADMIN_HOST + '/wp/v2/pages/11';
 
@@ -12,7 +10,14 @@ export default () => {
         pageContent: ''
     });
 
+
     useEffect(() => {
+
+        if(false) {
+            return;
+        }
+
+        console.log('use');
 
         axios({
             method: 'GET',
@@ -34,9 +39,15 @@ export default () => {
     }, []);
 
     return (
-        <div className="about-wrapper">
-            <h3 dangerouslySetInnerHTML={{__html: pageData.pageTitle}}/>
-            <div dangerouslySetInnerHTML={{__html: pageData.pageContent}}/>
+        <div className="about-page page-wrapper">
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-lg-7">
+                        <h1 dangerouslySetInnerHTML={{__html: pageData.pageTitle}}/>
+                        <div className="page-content" dangerouslySetInnerHTML={{__html: pageData.pageContent}}/>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

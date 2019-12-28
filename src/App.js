@@ -7,6 +7,7 @@ import News from "./components/News/News";
 import Shows from "./components/Shows/Shows";
 import About from "./components/About/About";
 import Music from "./components/Music/Music";
+import SiteFooter from "./components/Footer/SiteFooter";
 
 import Gallery from "./components/Gallery/Gallery";
 
@@ -79,8 +80,11 @@ export default function App() {
 
         // If we have articles for that page already, don't load.
         if (Object.keys(articlesPages).indexOf(page.toString()) >= 0) {
+            console.log(Object.keys(articlesPages));
             return;
         }
+
+
 
         const _url = admHost + '/exegutor/v1/posts?page=' + page;
 
@@ -130,20 +134,21 @@ export default function App() {
         articlesPages,
         totalPages,
         loading
-    }
+    };
 
 
     return (
         <div className="app-wrapper">
             <Header/>
-            <div className="content">
+            <main>
                 <Route exact path="/" render={() => <Home articlesData={articlesData} />}/>
                 <Route path="/news" render={() => <News articlesData={articlesData} />}/>
                 <Route path="/shows" render={() => <Shows/>}/>
                 <Route path="/about" render={() => <About/>}/>
                 <Route path="/music" render={() => <Music/>}/>
                 <Route path="/gallery" render={() => <Gallery/>}/>
-            </div>
+            </main>
+            <SiteFooter />
         </div>
     );
 }
