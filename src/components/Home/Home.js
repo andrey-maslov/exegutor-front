@@ -7,6 +7,7 @@ import NewsBlock from "./Content/NewsBlock/NewsBlock";
 //import Counter from "./Hero/Counter";
 
 export default function(props) {
+
     return (
         <div className="home-wrapper">
             <Hero />

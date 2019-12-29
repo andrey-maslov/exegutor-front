@@ -60,6 +60,9 @@ export default function App() {
     //All articles that we have loaded
     const [articles, setArticles] = useState([]);
 
+    //All thumbnails for posts
+    const [thumbs, setThumbs] = useState([]);
+
     //Pages for articles ID`s
     const [articlesPages, setArticlesPages] = useState({});
 
@@ -80,13 +83,12 @@ export default function App() {
 
         // If we have articles for that page already, don't load.
         if (Object.keys(articlesPages).indexOf(page.toString()) >= 0) {
-            console.log(Object.keys(articlesPages));
             return;
         }
 
 
 
-        const _url = admHost + '/exegutor/v1/posts?page=' + page;
+        const _url = admHost + '/wp/v2/posts?page=' + page;
 
         axios({
             method: 'GET',
@@ -119,12 +121,39 @@ export default function App() {
                 setLoading(false);
 
             })
+            .then(()=> {
+                getMedia();
+            })
             .catch((error) => {
                 console.error(error);
             })
 
 
-    }, [ currentPage, loading, articlesPages, articles, totalPages ]);
+    }, [ currentPage, loading, articlesPages, articles, totalPages, thumbs ]);
+
+
+    function getMedia(){
+
+        const _url_media = admHost + '/wp/v2/media';
+
+        axios({
+            method: 'GET',
+            url: _url_media
+        })
+            .then((response) => {
+                if(response.status === 200 && response.data) {
+                    const mediaData = response.data;
+
+                    setThumbs(mediaData)
+
+                }
+
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+    }
+
 
     let articlesData = {
         getArticlesForPage,
@@ -133,7 +162,8 @@ export default function App() {
         articles,
         articlesPages,
         totalPages,
-        loading
+        loading,
+        thumbs
     };
 
 

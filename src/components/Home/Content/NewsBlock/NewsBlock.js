@@ -6,16 +6,21 @@ import Article from "../../../News/Article";
 export default function(props) {
 
     const latestArticles = props.articlesData.articles.slice(0, 3);
+    const thumbs = props.articlesData.thumbs;
     
     // For all the articles that are passed, add article
     const articlesToShow = latestArticles.map((item, index) => {
+        // let thumbId = item.featured_media;
+        // let thumb = thumbs.filter((item)=> {
+        //     return item.id === thumbId;
+        // });
            return (
-            <div className="col-lg-4" key={item.id} data-key={item.id}>
-                <Article data={item} />
+            <div className="col-lg-4" key={item.id} data-key={item.id} >
+                <Article thumbs={thumbs} data={item}/>
             </div>
         )
     });
-    
+
 
     return (
         <section className="main-news section section-dark">

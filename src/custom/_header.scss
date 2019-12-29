@@ -27,6 +27,7 @@
   }
 
   &-name {
+    font-size: 26px;
     color: #fff;
     font-family: $title-font;
     margin-bottom: 0;
@@ -50,12 +51,13 @@
         font-family: $title-font;
 
         &:hover {
-          text-decoration: none;
-          color: $accent;
+          text-decoration: underline;
+          //color: $accent;
         }
 
         &.current-menu-item {
-          color: $accent;
+          //color: $accent;
+          text-decoration: underline;
         }
       }
 
