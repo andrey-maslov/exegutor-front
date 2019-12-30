@@ -13,24 +13,21 @@ export default function ArticlesList(props) {
     const articlesToShow = props.articles.map((item, index) => {
         return (
             <div className="col-lg-4" key={item.id} data-key={item.id}>
-                <Article data={item} />
+                <Article postData={item} />
             </div>
         )
     });
-    // console.log(props);
 
     return (
         <div className="articles">
-            <div className="container">
-                <div className="row">
+            <div className="row">
                 {articlesToShow}
             </div>
-                <Pagination
-                    currentPage={props.currentPage}
-                    setCurrentPage={props.setCurrentPage}
-                    totalPages={props.totalPages}
-                />
-            </div>
+            <Pagination
+                currentPage={props.currentPage}
+                setCurrentPage={props.setCurrentPage}
+                totalPages={props.totalPages}
+            />
         </div>
     )
 }

@@ -88,7 +88,7 @@ export default function App() {
 
 
 
-        const _url = admHost + '/wp/v2/posts?page=' + page;
+        const _url = admHost + '/exegutor/v1/posts?page=' + page;
 
         axios({
             method: 'GET',
@@ -122,7 +122,7 @@ export default function App() {
 
             })
             .then(()=> {
-                getMedia();
+                // getMedia();
             })
             .catch((error) => {
                 console.error(error);
@@ -162,8 +162,8 @@ export default function App() {
         articles,
         articlesPages,
         totalPages,
-        loading,
-        thumbs
+        loading
+        // thumbs
     };
 
 

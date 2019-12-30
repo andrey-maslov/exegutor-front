@@ -10,13 +10,9 @@ export default function(props) {
     
     // For all the articles that are passed, add article
     const articlesToShow = latestArticles.map((item, index) => {
-        // let thumbId = item.featured_media;
-        // let thumb = thumbs.filter((item)=> {
-        //     return item.id === thumbId;
-        // });
            return (
             <div className="col-lg-4" key={item.id} data-key={item.id} >
-                <Article thumbs={thumbs} data={item}/>
+                <Article postData={item}/>
             </div>
         )
     });
