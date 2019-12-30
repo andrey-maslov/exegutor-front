@@ -10,6 +10,7 @@ import Music from "./components/Music/Music";
 import SiteFooter from "./components/Footer/SiteFooter";
 
 import Gallery from "./components/Gallery/Gallery";
+import ArticleView from "./components/News/ArticleView";
 
 const axios = require('axios');
 
@@ -172,11 +173,12 @@ export default function App() {
             <Header/>
             <main>
                 <Route exact path="/" render={() => <Home articlesData={articlesData} />}/>
-                <Route path="/news" render={() => <News articlesData={articlesData} />}/>
-                <Route path="/shows" render={() => <Shows/>}/>
-                <Route path="/about" render={() => <About/>}/>
-                <Route path="/music" render={() => <Music/>}/>
-                <Route path="/gallery" render={() => <Gallery/>}/>
+                <Route exact path="/news" render={() => <News articlesData={articlesData} />}/>
+                <Route exact path="/shows" render={() => <Shows/>}/>
+                <Route exact path="/about" render={() => <About/>}/>
+                <Route exact path="/music" render={() => <Music/>}/>
+                <Route exact path="/gallery" render={() => <Gallery/>}/>
+                <Route exact path="/news/:slug" render={() => <ArticleView/>}/>
             </main>
             <SiteFooter />
         </div>

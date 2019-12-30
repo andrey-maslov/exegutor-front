@@ -4,7 +4,7 @@ import axios from 'axios';
 import {NavLink} from "react-router-dom";
 
 let admHost = process.env.REACT_APP_ADMIN_HOST;
-let test = 'http://exegutor.maslov.work/';
+let homeLink = 'exegutor.maslov.work';
 
 
 class Nav extends React.Component {
@@ -37,10 +37,12 @@ class Nav extends React.Component {
             })
             .then((data) => {
                 const items = data.map((item, index) => {
+                    let link = (item.slug !== homeLink) ? item.slug : '';
                     return (
                         <li className="nav-item" key={index}>
-                            <NavLink to={Nav.modifyUrl(item.url)} exact
-                                     activeClassName="current-menu-item">{item.title}</NavLink>
+                            <NavLink exact to={`/${link}`} activeClassName="current-menu-item">
+                                {item.title}
+                            </NavLink>
                         </li>
                     )
                 });
