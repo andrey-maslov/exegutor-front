@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Route} from "react-router-dom";
+import {Route, BrowserRouter} from "react-router-dom";
 
 import Header from "./components/Header/Header";
 import Home from './components/Home/Home';
@@ -38,11 +38,11 @@ function getArticlesForPage(page = 1, articles, articlesPages) {
 
     // For each article ID inside of the provided page,
     // push the whole article object to the array
-    for( var i = 0; i < articlesPages[page].length; i++ ) {
-        var articleID = parseInt( articlesPages[page][i] );
-        for( var a = 0; a < articles.length; a++ ) {
-            if ( parseInt( articles[ a ].id ) === articleID ) {
-                the_articles.push( articles[ a ] );
+    for (var i = 0; i < articlesPages[page].length; i++) {
+        var articleID = parseInt(articlesPages[page][i]);
+        for (var a = 0; a < articles.length; a++) {
+            if (parseInt(articles[a].id) === articleID) {
+                the_articles.push(articles[a]);
                 break;
             }
         }
@@ -52,7 +52,7 @@ function getArticlesForPage(page = 1, articles, articlesPages) {
     return the_articles;
 }
 
-export default function App() {
+function App() {
 
 
     //Signal to the app is already loaded or not
@@ -88,7 +88,6 @@ export default function App() {
         }
 
 
-
         const _url = admHost + '/exegutor/v1/posts?page=' + page;
 
         axios({
@@ -122,7 +121,7 @@ export default function App() {
                 setLoading(false);
 
             })
-            .then(()=> {
+            .then(() => {
                 // getMedia();
             })
             .catch((error) => {
@@ -130,10 +129,10 @@ export default function App() {
             })
 
 
-    }, [ currentPage, loading, articlesPages, articles, totalPages, thumbs ]);
+    }, [currentPage, loading, articlesPages, articles, totalPages, thumbs]);
 
 
-    function getMedia(){
+    function getMedia() {
 
         const _url_media = admHost + '/wp/v2/media';
 
@@ -142,7 +141,7 @@ export default function App() {
             url: _url_media
         })
             .then((response) => {
-                if(response.status === 200 && response.data) {
+                if (response.status === 200 && response.data) {
                     const mediaData = response.data;
 
                     setThumbs(mediaData)
@@ -169,19 +168,23 @@ export default function App() {
 
 
     return (
-        <div className="app-wrapper">
-            <Header/>
-            <main>
-                <Route exact path="/" render={() => <Home articlesData={articlesData} />}/>
-                <Route exact path="/news" render={() => <News articlesData={articlesData} />}/>
-                <Route exact path="/shows" render={() => <Shows/>}/>
-                <Route exact path="/about" render={() => <About/>}/>
-                <Route exact path="/music" render={() => <Music/>}/>
-                <Route exact path="/gallery" render={() => <Gallery/>}/>
-                <Route exact path="/news/:slug" render={() => <ArticleView/>}/>
-            </main>
-            <SiteFooter />
-        </div>
+        <BrowserRouter>
+            <div className="app-wrapper">
+                <Header/>
+                <main>
+                    <Route exact path="/" render={() => <Home articlesData={articlesData}/>}/>
+                    <Route exact path="/news" render={() => <News articlesData={articlesData}/>}/>
+                    <Route exact path="/shows" render={() => <Shows/>}/>
+                    <Route exact path="/about" render={() => <About/>}/>
+                    <Route exact path="/music" render={() => <Music/>}/>
+                    <Route exact path="/gallery" render={() => <Gallery/>}/>
+                    <Route exact path="/news/:slug" render={({match}) => <ArticleView match={match} />}/>
+                </main>
+                <SiteFooter/>
+            </div>
+        </BrowserRouter>
     );
 }
 
+
+export default App;

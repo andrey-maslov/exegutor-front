@@ -2,14 +2,14 @@ import React, {useState, useEffect} from 'react'
 import {NavLink} from "react-router-dom";
 
 //images
-import defaultThmb from './../../img/hero.jpg'
+import defaultThumb from './../../img/hero.jpg'
 
 export default (props) => {
     return (
         <div className="news-item">
             <div className="news-item-inner" >
                 <NavLink className="news-item-image" to={`/news/${props.postData.slug}`} >
-                    <img src={props.postData.thumb || defaultThmb} alt="" className="img-responsive"/>
+                    <img src={props.postData.thumb || defaultThumb} alt="" className="img-responsive"/>
                 </NavLink>
                 <div className="news-item-content">
                     <div className="news-item-date">{props.postData.date}</div>
