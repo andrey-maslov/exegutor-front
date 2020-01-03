@@ -28,7 +28,6 @@ class ArticleView extends React.Component {
             .then((data) => {
                 this.setState({post: data});
                 this.getMedia(data['_links']['wp:featuredmedia'][0]['href']);
-                console.log(data['_links']['wp:featuredmedia'][0]['href'])
             })
             .catch(error => {
                 console.error(error)
@@ -44,7 +43,6 @@ class ArticleView extends React.Component {
             .then(response => response.data)
             .then(data => {
                 this.setState({media: data});
-                    console.log(this.state.media)
             })
     }
 
