@@ -11,6 +11,7 @@ import SiteFooter from "./components/Footer/SiteFooter";
 
 import Gallery from "./components/Gallery/Gallery";
 import ArticleView from "./components/News/ArticleView";
+import AlbumView from "./components/Music/Albums/AlbumView";
 
 const axios = require('axios');
 
@@ -179,6 +180,7 @@ function App() {
                     <Route exact path="/music" render={() => <Music/>}/>
                     <Route exact path="/gallery" render={() => <Gallery/>}/>
                     <Route exact path="/news/:slug" render={({match}) => <ArticleView match={match} />}/>
+                    <Route exact path="/music/:album" render={({match}) => <AlbumView match={match} />}/>
                 </main>
                 <SiteFooter/>
             </div>
