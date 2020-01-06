@@ -11,7 +11,7 @@ import SiteFooter from "./components/Footer/SiteFooter";
 
 import Gallery from "./components/Gallery/Gallery";
 import ArticleView from "./components/News/ArticleView";
-import AlbumView from "./components/Music/Albums/AlbumView";
+import AlbumView from "./components/Music/Albums/AlbumView/AlbumView.jsx";
 
 const axios = require('axios');
 
