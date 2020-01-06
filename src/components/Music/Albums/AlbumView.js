@@ -1,24 +1,33 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import axios from 'axios'
 
 
-export default (props) => {
+class AlbumView extends React.Component {
 
-    const albumSlug = props.match.params.album;
+    constructor(props) {
+        super(props);
+        this.state = {}
+        this.albumSlug = this.props.match.params.album;
+        this.admHost = process.env.REACT_APP_ADMIN_HOST;
+    }
 
-    const [albumData, setAlbumData] = useState({});
-    console.log(props);
+    componentDidMount() {
+        const fetchData = async () => {
+            const result = await axios( this.admHost + '/exegutor/v1/albums/' + this.albumSlug );
+            this.setState(result.data)
+        };
+        fetchData();
+    }
 
-    useEffect(() => {
+    render() {
+        
+        return (
+            <div>
+                {this.state.title}
+            </div>
+        )
+    }
 
-    },[]);
-
-
-
-    return (
-        <div>
-            {albumSlug}
-            {props.other}
-        </div>
-    )
 }
+
+export default AlbumView;
