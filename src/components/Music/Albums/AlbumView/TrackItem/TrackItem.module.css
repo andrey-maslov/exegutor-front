@@ -1,0 +1,26 @@
+.track {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    list-style: decimal;
+}
+.trackTitle {
+    font-family: sans-serif;
+    margin-bottom: 0;
+}
+.modal {
+
+}
+.modalContent {
+
+}
+.openBtn {
+
+}
+.closeBtn {
+
+}
+
