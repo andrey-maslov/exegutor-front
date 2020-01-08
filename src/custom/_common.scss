@@ -48,3 +48,15 @@ a {
 .loading {
   // background-color: $bg-dark;
 }
+
+
+.ReactModal {
+  &__Body--open {
+    height: 100vh;
+    overflow: hidden;
+  }
+  &__Overlay--after-open {
+    background-color: rgba(#000, .75) !important;
+  }
+}
+

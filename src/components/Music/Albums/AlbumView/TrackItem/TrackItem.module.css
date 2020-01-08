@@ -1,3 +1,6 @@
+.item {
+
+}
 .track {
     display: flex;
     align-items: center;
@@ -12,15 +15,34 @@
     margin-bottom: 0;
 }
 .modal {
+    position: absolute;
+    background-color: #fff;
+    padding: 40px;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    marginRight: -50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 3px 12px rgba(0,0,0,.6);
 
 }
 .modalContent {
+
+}
+.modalTitle {
+    padding-right: 30px;
+}
+.modalBody {
 
 }
 .openBtn {
 
 }
 .closeBtn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
 
 }
 
