@@ -51,12 +51,16 @@ a {
 
 
 .ReactModal {
-  &__Body--open {
-    height: 100vh;
-    overflow: hidden;
-  }
+  //&__Body--open {
+  //  height: 100vh;
+  //  overflow: hidden;
+  //}
   &__Overlay--after-open {
     background-color: rgba(#000, .75) !important;
   }
 }
 
+.modal-opened {
+  overflow: hidden;
+  margin-right: 17px;
+}

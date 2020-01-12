@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom'
 
 export default (props) => {
     return (
-        <li className="albums-item" key={props.album.id}>
+        <li className="albums-item">
             <img src={props.album.thumb} alt={props.album.title} className="albums-item-img"/>
             <div className="albums-item-content">
                 <NavLink className="albums-item-title-link" to={`/music/${props.album.slug}`}>

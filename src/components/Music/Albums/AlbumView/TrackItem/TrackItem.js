@@ -17,6 +17,8 @@ export default class TrackItem extends React.Component {
             modalIsOpen: false
         };
 
+        this.htmlTag = document.body.parentNode;
+
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
     }
@@ -25,7 +27,7 @@ export default class TrackItem extends React.Component {
         this.setState({
             modalIsOpen: true
         });
-        document.body.classList.add('modal-opened');
+        this.htmlTag.classList.add('modal-opened');
     }
 
     afterOpenModal() {
@@ -36,6 +38,7 @@ export default class TrackItem extends React.Component {
         this.setState({
             modalIsOpen: false
         })
+        this.htmlTag.classList.remove('modal-opened');
     }
 
     render() {
