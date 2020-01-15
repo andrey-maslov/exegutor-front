@@ -13,6 +13,8 @@ import Gallery from "./components/Gallery/Gallery";
 import ArticleView from "./components/News/ArticleView";
 import AlbumView from "./components/Music/Albums/AlbumView/AlbumView.jsx";
 
+import {store, someFunc, getAlbumsList} from './Store/store';
+
 const axios = require('axios');
 
 let admHost = process.env.REACT_APP_ADMIN_HOST;
@@ -73,6 +75,27 @@ function App() {
 
     //Total pages
     const [totalPages, setTotalPages] = useState(0);
+
+    //Albums list
+    const [albums, setAlbums] = useState({albumsData: []})
+
+
+    useEffect(() => {
+
+        axios
+            .get(admHost + '/exegutor/v1/albums')
+            .then(response => {
+                const data = response.data;
+                return data;
+            })
+            .then(data => {
+                setAlbums({albumsData: data})
+            })
+            .catch(error => {
+                console.error(error)
+            })
+
+    }, [])
 
 
     useEffect(() => {
@@ -177,7 +200,7 @@ function App() {
                     <Route exact path="/news" render={() => <News articlesData={articlesData}/>}/>
                     <Route exact path="/shows" render={() => <Shows/>}/>
                     <Route exact path="/about" render={() => <About/>}/>
-                    <Route exact path="/music" render={() => <Music/>}/>
+                    <Route exact path="/music" render={() => <Music albums={albums} />}/>
                     <Route exact path="/gallery" render={() => <Gallery/>}/>
                     <Route exact path="/news/:slug" render={({match}) => <ArticleView match={match} />}/>
                     <Route exact path="/music/:album" render={({match}) => <AlbumView match={match} />}/>
