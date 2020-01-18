@@ -79,6 +79,26 @@ function App() {
     //Albums list
     const [albums, setAlbums] = useState({albumsData: []})
 
+    //Shows list
+    const [shows, setShows] = useState({showsData: []})
+
+
+    useEffect(() => {
+
+        axios({
+            method: 'GET',
+            url: admHost + '/exegutor/v1/shows'
+        })
+            .then((response)=> {
+                const data = response.data;
+                setShows({showsData: data});
+                return data;
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    })
+
 
     useEffect(() => {
 
@@ -196,9 +216,9 @@ function App() {
             <div className="app-wrapper">
                 <Header/>
                 <main>
-                    <Route exact path="/" render={() => <Home articlesData={articlesData}/>}/>
+                    <Route exact path="/" render={() => <Home shows={shows} articlesData={articlesData}/>}/>
                     <Route exact path="/news" render={() => <News articlesData={articlesData}/>}/>
-                    <Route exact path="/shows" render={() => <Shows/>}/>
+                    <Route exact path="/shows" render={() => <Shows shows={shows} />}/>
                     <Route exact path="/about" render={() => <About/>}/>
                     <Route exact path="/music" render={() => <Music albums={albums} />}/>
                     <Route exact path="/gallery" render={() => <Gallery/>}/>

@@ -1,5 +1,5 @@
 import React from 'react'
-import {SectionHeader} from "../../../Common/SectionHeader";
+import SectionHeader from "../../../Common/SectionHeader";
 import Article from "../../../News/Article";
 
 

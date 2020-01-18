@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const SectionHeader = (props) => {
+export default (props) => {
 
     return (
         <div className="section-header">
