@@ -4,6 +4,7 @@ import React from 'react';
 import './Home.scss';
 import {Hero} from "./Hero/Hero";
 import NewsBlock from "./Content/NewsBlock/NewsBlock";
+import ShowsBlock from "./Content/ShowsBlock/ShowsBlock";
 //import Counter from "./Hero/Counter";
 
 export default function(props) {
@@ -12,6 +13,7 @@ export default function(props) {
         <div className="home-wrapper">
             <Hero />
             <NewsBlock articlesData={props.articlesData} />
+            <ShowsBlock shows={props.shows} />
         </div>
     )
 }
