@@ -1,11 +1,7 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
 import {Audio} from 'svg-loaders-react'
-import axios from 'axios'
 
 import AlbumsItem from './AlbumsItem'
-
-let admHost = process.env.REACT_APP_ADMIN_HOST;
 
 const AlbumList = (props) => {
 
@@ -24,7 +20,6 @@ const AlbumList = (props) => {
                 </ul>
             )
         }
-
 }
 
 export default AlbumList

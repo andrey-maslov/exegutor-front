@@ -1,0 +1,35 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(#fff, .1);
+
+  &:last-of-type {
+    border-bottom: 0px;
+    padding-bottom: 0;
+  }
+
+  &:first-of-type {
+    padding-top: 0;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.thumb {
+  margin-right: 20px;
+  cursor: pointer;
+  transition: all .3s;
+  &:hover {
+    opacity: .6;
+  }
+}
+.title {
+  margin-bottom: 0;
+}

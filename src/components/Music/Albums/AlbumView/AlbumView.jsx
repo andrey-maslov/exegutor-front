@@ -40,13 +40,10 @@ class AlbumView extends React.Component {
                     this.setState({
                         tracklist: _tracklist
                     })
-
                 }
             });
     }
-
     render() {
-
         if (this.state.albumData.title) {
             return (
                 <div className={styles.pageWrapper + " page-wrapper"}>
@@ -90,9 +87,7 @@ class AlbumView extends React.Component {
                                     {this.state.albumData.images && <ImageCarousel images={this.state.albumData.images} />}
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
             )
