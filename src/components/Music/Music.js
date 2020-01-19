@@ -1,5 +1,4 @@
 import React from 'react';
-import BandcampPlayer from 'react-bandcamp'
 import AlbumList from './Albums/AlbumsList';
 
 

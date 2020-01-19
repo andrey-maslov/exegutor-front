@@ -13,8 +13,6 @@ import Gallery from "./components/Gallery/Gallery";
 import ArticleView from "./components/News/ArticleView";
 import AlbumView from "./components/Music/Albums/AlbumView/AlbumView.jsx";
 
-import {store, someFunc, getAlbumsList} from './Store/store';
-
 const axios = require('axios');
 
 let admHost = process.env.REACT_APP_ADMIN_HOST;
@@ -76,11 +74,8 @@ function App() {
     //Total pages
     const [totalPages, setTotalPages] = useState(0);
 
-    //Albums list
-    const [albums, setAlbums] = useState({albumsData: []})
-
-    //Shows list
-    const [shows, setShows] = useState({showsData: []})
+    const [albums, setAlbums] = useState({albumsData: []});
+    const [shows, setShows] = useState({showsData: []});
 
 
     useEffect(() => {
@@ -97,7 +92,7 @@ function App() {
             .catch(error => {
                 console.error(error)
             })
-    })
+    }, [])
 
 
     useEffect(() => {
@@ -165,38 +160,12 @@ function App() {
                 setLoading(false);
 
             })
-            .then(() => {
-                // getMedia();
-            })
             .catch((error) => {
                 console.error(error);
             })
 
 
     }, [currentPage, loading, articlesPages, articles, totalPages, thumbs]);
-
-
-    function getMedia() {
-
-        const _url_media = admHost + '/wp/v2/media';
-
-        axios({
-            method: 'GET',
-            url: _url_media
-        })
-            .then((response) => {
-                if (response.status === 200 && response.data) {
-                    const mediaData = response.data;
-
-                    setThumbs(mediaData)
-
-                }
-
-            })
-            .catch((error) => {
-                console.error(error);
-            })
-    }
 
 
     let articlesData = {

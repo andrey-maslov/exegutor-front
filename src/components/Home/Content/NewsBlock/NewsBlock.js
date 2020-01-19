@@ -23,7 +23,7 @@ export default function(props) {
             <div className="container">
                 <div className="row">
                     <div className="col-xl-2 col-lg-3 col-md-12">
-                        <SectionHeader title="Latest News" subtitle="This is our news, guys" />
+                        <SectionHeader title="Последние новости" subtitle="Тут все самое лучшее" />
                     </div>
                     <div className="col-xl-10 col-lg-9 col-md-12">
                         <div className="row">

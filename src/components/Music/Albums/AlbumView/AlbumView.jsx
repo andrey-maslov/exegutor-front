@@ -5,6 +5,7 @@ import BandcampPlayer from 'react-bandcamp'
 import TrackItem from './TrackItem/TrackItem'
 
 import styles from './AlbumView.module.css'
+import ImageCarousel from './ImageCarousel';
 
 
 class AlbumView extends React.Component {
@@ -12,89 +13,78 @@ class AlbumView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            albumData : {},
+            albumData: {},
             tracklist: []
         };
         this.albumSlug = this.props.match.params.album;
         this.admHost = process.env.REACT_APP_ADMIN_HOST;
         this.playerHeight = '500px';
-    }
 
+    }
 
 
     componentDidMount() {
         const fetchData = async () => {
-            const result = await axios( this.admHost + '/exegutor/v1/albums/' + this.albumSlug );
+            const result = await axios(this.admHost + '/exegutor/v1/albums/' + this.albumSlug);
             this.setState({
-                albumData : result.data
+                albumData: result.data
             });
             return result.data;
         };
         fetchData()
-            .then((data)=>{
-                if(data.tracks) {
+            .then((data) => {
+                if (data.tracks) {
 
-                    const _tracklist = data.tracks.map((item, index) => <TrackItem track={item} key={index.toString()} />)
+                    const _tracklist = data.tracks.map((item, index) => <TrackItem track={item}
+                                                                                   key={index.toString()}/>)
                     this.setState({
                         tracklist: _tracklist
                     })
-
                 }
             });
     }
-
-
-
-
-
-
     render() {
-        
         if (this.state.albumData.title) {
             return (
                 <div className={styles.pageWrapper + " page-wrapper"}>
                     <div className="container">
                         <div className="row justify-content-center">
-                            <div className="col-lg-7">
+                            <div className="col-xl-7 col-lg-11">
                                 <div className="content">
-                                    <h1 
+                                    <h1
                                         className={styles.pageTitle}
                                         dangerouslySetInnerHTML={{__html: this.state.albumData.title}}
                                     />
-
                                     <div className="row">
-
                                         <div className="col-lg-4">
-                                            <BandcampPlayer 
+                                            <BandcampPlayer
                                                 album={this.state.albumData.host_id}
                                                 height={this.playerHeight}
                                             />
                                         </div>
-
                                         <div className="col-lg-8">
                                             <p>
-                                                <small>Release year: </small> 
+                                                <small>Release year: </small>
                                                 <strong dangerouslySetInnerHTML={{__html: this.state.albumData.year}}/>
-                                                </p>
+                                            </p>
                                             <p>
-                                                <small>Format: </small> 
-                                                <strong dangerouslySetInnerHTML={{__html: this.state.albumData.format}}/>
-                                                </p>
+                                                <small>Format: </small>
+                                                <strong
+                                                    dangerouslySetInnerHTML={{__html: this.state.albumData.format}}/>
+                                            </p>
                                             {this.state.publisher &&
-                                                <p>
-                                                    <small>Publisher: </small>
-                                                    <strong dangerouslySetInnerHTML={{__html: this.state.albumData.publisher}}/>
+                                            <p>
+                                                <small>Publisher: </small>
+                                                <strong
+                                                    dangerouslySetInnerHTML={{__html: this.state.albumData.publisher}}/>
                                             </p>}
-
-                                            {this.state.content &&<div dangerouslySetInnerHTML={{__html: this.state.albumData.content}} />}
+                                            {this.state.albumData.content &&
+                                            <div dangerouslySetInnerHTML={{__html: this.state.albumData.content}}/>}
                                             <p dangerouslySetInnerHTML={{__html: this.state.albumData.excerpt}}/>
-
                                             {this.state.tracklist && <ol>{this.state.tracklist}</ol>}
-
                                         </div>
-
                                     </div>
-
+                                    {this.state.albumData.images && <ImageCarousel images={this.state.albumData.images} />}
                                 </div>
                             </div>
                         </div>
@@ -102,7 +92,7 @@ class AlbumView extends React.Component {
                 </div>
             )
         } else {
-            return <div />
+            return <div/>
         }
 
     }
