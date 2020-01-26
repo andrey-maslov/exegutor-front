@@ -47,7 +47,7 @@ function Shows(props) {
                         <button onClick={displayPastShows}>
                             {displayPast ?
                                 'Показать только актуальные концерты' :
-                                'Показать прошедшие концерты тоже'}
+                                'Показать прошедшие концерты тоже!!'}
                         </button>
                     </div>
                 </div>
